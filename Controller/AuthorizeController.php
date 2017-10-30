@@ -34,7 +34,7 @@ class AuthorizeController extends Controller
             array_flip(explode(' ', 'response_type client_id redirect_uri scope state nonce'))
         );
 
-        return array('qs' => $qs, 'scopes' => $scopes);
+        return array('qs' => $qs, 'client_id' => $this->get('oauth2.request')->query->get('client_id'), 'scopes' => $scopes);
     }
 
     /**
